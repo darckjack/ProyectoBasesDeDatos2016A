@@ -1,0 +1,22 @@
+﻿<Page x:Class="ProyectoBasesDeDatos.PListarCentros"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProyectoBasesDeDatos"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PListarCentros">
+
+    <Grid Background="White" Loaded="Grid_Loaded">
+        <Label x:Name="label" Content="Centros Universitarios" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="193" Margin="10,56,0,0" AutoGenerateColumns="False" IsReadOnly="True" VerticalAlignment="Top" Width="280">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75" Click="btnRegresar_Click"/>
+
+    </Grid>
+</Page>
