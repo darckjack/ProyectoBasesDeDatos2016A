@@ -1,0 +1,26 @@
+﻿<Page x:Class="ProyectoBasesDeDatos.PModificarCentro"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProyectoBasesDeDatos"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="PModificarCentro">
+
+    <Grid Background="White" Loaded="Grid_Loaded">
+        <Label x:Name="label" Content="Modificar Centro" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75" Click="btnRegresar_Click"/>
+        <Label x:Name="label1" Content="Selecciona el centro universitario" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="134" Margin="10,72,0,0" VerticalAlignment="Top" Width="280" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label2" Content="Ingresa el nuevo nombre" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="10,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="135,270,0,0" VerticalAlignment="Top" Width="75" Click="btnModificar_Click" />
+
+    </Grid>
+</Page>

@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GUIPrincipalCentros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUIPrincipalCiclos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +71,94 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AdmiCentrosUniv.cs" />
+    <Compile Include="CentroUniv.cs" />
+    <Compile Include="CicloEscolar.cs" />
+    <Compile Include="AdmiCiclosEscolares.cs" />
+    <Compile Include="GUIPrincipalCentros.xaml.cs">
+      <DependentUpon>GUIPrincipalCentros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUIPrincipalCiclos.xaml.cs">
+      <DependentUpon>GUIPrincipalCiclos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ICentrosUniv.cs" />
+    <Compile Include="ICicloEscolar.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PAgregarCentro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PAgregarCiclo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PEliminarCentros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PEliminarCiclo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PInicioCentros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PInicioCiclos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PListarCentros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PListarCiclos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PModificarCiclo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PModificarCentro.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PAgregarCentro.xaml.cs">
+      <DependentUpon>PAgregarCentro.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PAgregarCiclo.xaml.cs">
+      <DependentUpon>PAgregarCiclo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PEliminarCentros.xaml.cs">
+      <DependentUpon>PEliminarCentros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PEliminarCiclo.xaml.cs">
+      <DependentUpon>PEliminarCiclo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PInicioCentros.xaml.cs">
+      <DependentUpon>PInicioCentros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PInicioCiclos.xaml.cs">
+      <DependentUpon>PInicioCiclos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PListarCentros.xaml.cs">
+      <DependentUpon>PListarCentros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PListarCiclos.xaml.cs">
+      <DependentUpon>PListarCiclos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PModificarCiclo.xaml.cs">
+      <DependentUpon>PModificarCiclo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PModificarCentro.xaml.cs">
+      <DependentUpon>PModificarCentro.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

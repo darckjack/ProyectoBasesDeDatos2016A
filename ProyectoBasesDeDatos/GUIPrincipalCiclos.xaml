@@ -1,0 +1,8 @@
+﻿<NavigationWindow x:Class="ProyectoBasesDeDatos.GUIPrincipalCiclos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Source="PInicioCiclos.xaml"
+        Title="Ciclos Escolares" Height="380" Width="320"
+        Loaded="NavigationWindow_Loaded"
+        Name="nvCiclos">
+</NavigationWindow>
