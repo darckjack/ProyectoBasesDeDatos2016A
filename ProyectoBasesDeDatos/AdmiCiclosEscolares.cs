@@ -6,116 +6,54 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
+using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
 namespace ProyectoBasesDeDatos
 {
     class AdmiCiclosEscolares : ICicloEscolar
     {
-
-        List<CicloEscolar> ciclos = null;
+        CicloEscolarDAO DAO;
 
         public AdmiCiclosEscolares()
         {
-            ciclos = new List<CicloEscolar>();
+            DAO = new CicloEscolarDAO();
         }
 
-        public CicloEscolar actualizar(CicloEscolar ciclo)
+        public bool actualizarCiclo(CicloEscolar ciclo)
         {
-            CicloEscolar cicl = ciclos.Where(c => c.ID == ciclo.ID).FirstOrDefault();
-            if (cicl != null && cicl.ID != Guid.Empty)
-            {
-                cicl = ciclo;
-            }
-            return cicl;
+            return DAO.actualizar(ciclo.ID, ciclo.Nombre, ciclo.FechaInicio, ciclo.FechaFin);
         }
 
-        public CicloEscolar actualizar(Guid id, string nombre, string inicio, string fin)
+        public bool actualizarCiclo(int id, string nombre, string inicio, string fin)
         {
-            CicloEscolar ciclo = ciclos.Where(c => c.ID == id).FirstOrDefault();
-            if (ciclo != null && ciclo.ID != Guid.Empty)
-            {
-                ciclo.Nombre = nombre;
-                ciclo.FechaInicio = inicio;
-                ciclo.FechaFin = fin;
-            }
-            return ciclo;
-        }
-
-        public void agregarCiclo(CicloEscolar ciclo)
-        {
-            ciclos.Add(ciclo);
+            return DAO.actualizar(id, nombre, inicio, fin);
         }
 
         public void agregarCiclo(string nombre, string inicio, string fin)
         {
-            ciclos.Add(new CicloEscolar(nombre, inicio, fin));
+            DAO.agregar(nombre, inicio, fin);
         }
 
-        public bool borrar(CicloEscolar ciclo)
+        public bool borrarCiclo(CicloEscolar ciclo)
         {
-            ciclos.Remove(ciclos.Where(c => c.ID == ciclo.ID).FirstOrDefault());
-            return true;
+            return DAO.borrar(ciclo.ID);
         }
 
-        public bool borrar(Guid id)
+        public bool borrarCiclo(int id)
         {
-            ciclos.Remove(ciclos.Where(c => c.ID == id).FirstOrDefault());
-            return true;
+            return DAO.borrar(id);
         }
-
-        public bool borrar(int pos)
+        
+        public List<CicloEscolar> listarCiclos()
         {
-            if(pos < ciclos.Count)
-            {
-                ciclos.RemoveAt(pos);
-                return true;
-            }
-            return false;
+            return DAO.listar();
         }
-
-        public void cargarArchivo(string archivo)
+        
+        public CicloEscolar obtenerCiclo(int id)
         {
-            if (File.Exists(archivo))
-            {
-                using (var sr = new StreamReader(archivo))
-                {
-                    var l = new XmlSerializer(typeof(List<CicloEscolar>));
-                    ciclos = (List<CicloEscolar>)l.Deserialize(sr);
-                }
-            }
-        }
-
-        public void guardarArchivo(string archivo)
-        {
-            using (var sw = new StreamWriter(archivo))
-            {
-                var g = new XmlSerializer(typeof(List<CicloEscolar>));
-                g.Serialize(sw, ciclos);
-            }
-        }
-
-        public void limpiar()
-        {
-            ciclos.Clear();
-        }
-
-        public List<CicloEscolar> listar()
-        {
-            return ciclos;
-        }
-
-        public CicloEscolar obtener(string nombre)
-        {
-            return ciclos.Where(c => c.Nombre == nombre).FirstOrDefault();
-        }
-
-        public CicloEscolar obtener(Guid id)
-        {
-            return ciclos.Where(c => c.ID == id).FirstOrDefault();
-        }
-
-        public CicloEscolar obtener(int pos)
-        {
-            return ciclos[pos];
+            return DAO.obtener(id);
         }
     }
 }

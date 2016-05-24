@@ -6,113 +6,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
+using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
+
 namespace ProyectoBasesDeDatos
 {
     public class AdmiCentrosUniv : ICentrosUniv
     {
-        private List<CentroUniv> listaCentrosUniv = null;
+        CentroUnivDAO DAO;
 
         public AdmiCentrosUniv()
         {
-            listaCentrosUniv = new List<CentroUniv>();
+            DAO = new CentroUnivDAO();            
         }
 
-        public void agregarCentro(CentroUniv centro)
+        public bool actualizarCentro(CentroUniv centro)
         {
-            listaCentrosUniv.Add(centro);
+            return DAO.actualizar(centro.Id, centro.Nombre);
+        }
+
+        public bool actualizarCentro(int id, string nombreCentro)
+        {
+            return DAO.actualizar(id, nombreCentro);
         }
 
         public void agregarCentro(string nombre)
         {
-            listaCentrosUniv.Add(new CentroUniv(nombre));
-        }        
-
-        public CentroUniv obtener(int pos)
-        {
-            return listaCentrosUniv[pos];
+            DAO.agregar(nombre);
         }
 
-        public CentroUniv obtener(Guid id)
+        public bool borrarCentro(CentroUniv centro)
         {
-            return listaCentrosUniv.Where(c => c.Id == id).FirstOrDefault();
+            return DAO.borrar(centro.Id);
         }
 
-        public CentroUniv obtener(string nombre)
+        public bool borrarCentro(int id)
         {
-            return listaCentrosUniv.Where(c => c.Nombre == nombre).FirstOrDefault();
+            return DAO.borrar(id);
         }
 
-        public CentroUniv actualizar(Guid id, string nombreCentro)
+        public List<CentroUniv> listarCentros()
         {
-            CentroUniv cent = listaCentrosUniv.Where(c => c.Id == id).FirstOrDefault();
-            if(cent != null && cent.Id != Guid.Empty)
-            {
-                cent.Nombre = nombreCentro;
-            }
-            return cent;
+            return DAO.listar();
         }
 
-        public CentroUniv actualizar(CentroUniv centro)
+        public CentroUniv obtenerCentro(int id)
         {
-            CentroUniv cent = listaCentrosUniv.Where(c => c.Id == centro.Id).FirstOrDefault();
-            if (cent != null && cent.Id != Guid.Empty){
-                cent = centro;
-            }
-            return cent;
-        }        
-
-        public bool borrar(int pos)
-        {
-            if(pos < listaCentrosUniv.Count)
-            {
-                listaCentrosUniv.RemoveAt(pos);
-                return true;
-            }
-            return false;
+            return DAO.obtener(id);
         }
-
-        public bool borrar(Guid id)
-        {
-            listaCentrosUniv.Remove(listaCentrosUniv.Where(c => c.Id == id).FirstOrDefault());
-            return true;
-        }
-
-        public bool borrar(CentroUniv centro)
-        {
-            listaCentrosUniv.Remove(listaCentrosUniv.Where(c => c.Id == centro.Id).FirstOrDefault());
-            return true;
-        }
-
-        public List<CentroUniv> listar()
-        {
-            return listaCentrosUniv;
-        }
-
-        public void cargarArchivo(string archivo)
-        {
-            if (File.Exists(archivo))
-            {
-                using (var sr = new StreamReader(archivo))
-                {
-                    var l = new XmlSerializer(typeof(List<CentroUniv>));
-                    listaCentrosUniv = (List<CentroUniv>)l.Deserialize(sr);
-                }                    
-            }
-        }
-
-        public void guardarArchivo(string archivo)
-        {
-            using (var sw = new StreamWriter(archivo))
-            {
-                var g = new XmlSerializer(typeof(List<CentroUniv>));
-                g.Serialize(sw, listaCentrosUniv);
-            }
-        }
-
-        public void limpiar()
-        {
-            listaCentrosUniv.Clear();
-        }
-
     }
 }

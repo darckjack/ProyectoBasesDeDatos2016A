@@ -37,7 +37,7 @@ namespace ProyectoBasesDeDatos
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = centrosUniv.listar();
+            dataGrid.ItemsSource = centrosUniv.listarCentros();
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace ProyectoBasesDeDatos
                 {
                     CentroUniv temp = (CentroUniv)dataGrid.SelectedItem;
                     temp.Nombre = txtNombre.Text.Trim();
-                    centrosUniv.actualizar(temp);
+                    centrosUniv.actualizarCentro(temp);
                     MessageBox.Show("Registro modificaco", this.Title, MessageBoxButton.OK);
                     this.NavigationService.GoBack();
                 }

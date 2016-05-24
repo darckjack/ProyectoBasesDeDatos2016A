@@ -8,10 +8,10 @@ namespace ProyectoBasesDeDatos
 {
     public class CentroUniv
     {
-        private Guid id;        
+        private int id;        
         private String nombre;                      
 
-        public Guid Id
+        public int Id
         {
             get { return id; }
             set { id = value; }
@@ -25,13 +25,13 @@ namespace ProyectoBasesDeDatos
 
         public CentroUniv()
         {
-            id = Guid.Empty;
+            id = -1;
             nombre = "";
         }
 
-        public  CentroUniv(String nomCentro)
+        public  CentroUniv(int id,String nomCentro)
         {
-            id = Guid.NewGuid();
+            this.id = id;
             nombre = nomCentro;
         }
 

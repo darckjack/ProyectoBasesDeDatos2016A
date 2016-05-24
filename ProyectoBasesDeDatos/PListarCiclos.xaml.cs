@@ -35,7 +35,7 @@ namespace ProyectoBasesDeDatos
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = ciclos.listar();
+            dataGrid.ItemsSource = ciclos.listarCiclos();
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
