@@ -32,14 +32,14 @@ namespace ProyectoBasesDeDatos
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = ciclos.listar();
+            dataGrid.ItemsSource = ciclos.listarCiclos();
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if(dataGrid.SelectedIndex >= 0)
-            {
-                ciclos.borrar((CicloEscolar)dataGrid.SelectedItem);
+            if (dataGrid.SelectedIndex >= 0)
+            {                                               
+                ciclos.borrarCiclo((CicloEscolar)dataGrid.SelectedItem);
                 MessageBox.Show("Registro eliminado", this.Title, MessageBoxButton.OK);
                 this.NavigationService.GoBack();
             }

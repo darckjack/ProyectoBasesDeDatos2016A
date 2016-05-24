@@ -7,20 +7,13 @@ using System.Threading.Tasks;
 namespace ProyectoBasesDeDatos
 {
     public interface ICentrosUniv
-    {
-        void agregarCentro(CentroUniv centro);
+    {        
         void agregarCentro(String nombre);
-        CentroUniv obtener(int pos);
-        CentroUniv obtener(Guid id);
-        CentroUniv obtener(String nombre);
-        CentroUniv actualizar(CentroUniv centro);
-        CentroUniv actualizar(Guid id, String nombreCentro);
-        bool borrar(int pos);
-        bool borrar(Guid id);
-        bool borrar(CentroUniv centro);
-        List<CentroUniv> listar();
-        void cargarArchivo(String archivo);
-        void guardarArchivo(String archivo);
-        void limpiar();
+        CentroUniv obtenerCentro(int id);
+        bool actualizarCentro(CentroUniv centro);
+        bool actualizarCentro(int id, String nombreCentro);
+        bool borrarCentro(int id);
+        bool borrarCentro(CentroUniv centro);
+        List<CentroUniv> listarCentros();        
     }
 }

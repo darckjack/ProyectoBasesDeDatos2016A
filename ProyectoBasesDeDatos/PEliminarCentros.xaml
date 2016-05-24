@@ -11,7 +11,7 @@
     <Grid Background="White" Loaded="Grid_Loaded">
         <Label x:Name="label" Content="Eliminar Centro Universitario" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="215,270,0,0" VerticalAlignment="Top" Width="75" Click="btnRegresar_Click"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="193" Margin="10,72,0,0" VerticalAlignment="Top" Width="280" IsReadOnly="True">
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="193" Margin="10,72,0,0" VerticalAlignment="Top" Width="280" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>

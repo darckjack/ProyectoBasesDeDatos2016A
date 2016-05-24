@@ -40,7 +40,7 @@ namespace ProyectoBasesDeDatos
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = ciclos.listar();
+            dataGrid.ItemsSource = ciclos.listarCiclos();
         }
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,7 @@ namespace ProyectoBasesDeDatos
                 temp.Nombre = txtNombre.Text.Trim();
                 temp.FechaInicio = dpInicio.Text.Trim();
                 temp.FechaFin = dpInicio.Text.Trim();
-                ciclos.actualizar(temp);
+                ciclos.actualizarCiclo(temp);
                 MessageBox.Show("Registro Modificado", this.Title, MessageBoxButton.OK);
                 this.NavigationService.GoBack();
             }

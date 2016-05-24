@@ -8,19 +8,12 @@ namespace ProyectoBasesDeDatos
 {
     public interface ICicloEscolar
     {
-        void agregarCiclo(CicloEscolar ciclo);
         void agregarCiclo(String nombre, String inicio, String fin);
-        CicloEscolar obtener(int pos);
-        CicloEscolar obtener(Guid id);
-        CicloEscolar obtener(String nombre);
-        CicloEscolar actualizar(CicloEscolar ciclo);
-        CicloEscolar actualizar(Guid id, String nombre, String inicio, String fin);
-        bool borrar(int pos);
-        bool borrar(Guid id);
-        bool borrar(CicloEscolar ciclo);
-        List<CicloEscolar> listar();
-        void cargarArchivo(String archivo);
-        void guardarArchivo(String archivo);
-        void limpiar();
+        CicloEscolar obtenerCiclo(int id);
+        bool actualizarCiclo(CicloEscolar ciclo);
+        bool actualizarCiclo(int id, String nombre, String inicio, String fin);
+        bool borrarCiclo(int id);
+        bool borrarCiclo(CicloEscolar ciclo);
+        List<CicloEscolar> listarCiclos();
     }
 }

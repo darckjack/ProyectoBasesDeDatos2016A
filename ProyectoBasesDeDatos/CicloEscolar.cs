@@ -8,12 +8,12 @@ namespace ProyectoBasesDeDatos
 {
     public class CicloEscolar
     {
-        private Guid id;
+        private int id;
         private String nombre;
         private String fechaInicio;
         private String fechaFin;
 
-        public Guid ID
+        public int ID
         {
             get { return id; }
             set { id = value; }
@@ -39,15 +39,15 @@ namespace ProyectoBasesDeDatos
 
         public CicloEscolar()
         {
-            id = Guid.Empty;
+            id = -1;
             nombre = "";
             fechaInicio = "";
             fechaFin = "";
         }
 
-        public CicloEscolar(String nom, String inicio, String fin)
+        public CicloEscolar(int id, String nom, String inicio, String fin)
         {
-            id = Guid.NewGuid();
+            this.id = id;
             nombre = nom;
             fechaInicio = inicio;
             fechaFin = fin;

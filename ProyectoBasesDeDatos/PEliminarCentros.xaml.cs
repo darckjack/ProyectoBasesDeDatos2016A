@@ -40,14 +40,14 @@ namespace ProyectoBasesDeDatos
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = centrosUniv.listar();
+            dataGrid.ItemsSource = centrosUniv.listarCentros();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             if(dataGrid.SelectedIndex >= 0)
             {
-                centrosUniv.borrar((CentroUniv)dataGrid.SelectedItem);
+                centrosUniv.borrarCentro((CentroUniv)dataGrid.SelectedItem);
                 MessageBox.Show("Registro eliminado", this.Title, MessageBoxButton.OK);
                 this.NavigationService.GoBack();
             }

@@ -13,7 +13,7 @@
         <DataGrid x:Name="dataGrid" Height="224" Margin="10,41,10,0" VerticalAlignment="Top" IsReadOnly="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding ID}"/>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding  Nombre}"/>
                 <DataGridTextColumn Header="Inicio" Binding="{Binding FechaInicio}"/>
                 <DataGridTextColumn Header="Fin" Binding="{Binding FechaFin}"/>
             </DataGrid.Columns>
